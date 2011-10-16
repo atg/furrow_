@@ -2,7 +2,7 @@
 
 #define emit(kind) emit_token(kind, ts, te, tokens);
 
-static inline emit_token(int kind, char* ts, char* te, std::vector& tokens) {
+static inline emit_token(int kind, char* ts, char* te, std::vector<token_t>& tokens) {
     token_t tok;
     tok.tokentype = kind;
     tok.content = std::string(ts, te, te - ts);
