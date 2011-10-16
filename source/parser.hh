@@ -1,3 +1,5 @@
+#import <vector>
+
 #import "lexer.hh"
 #import "ast.hh"
 
