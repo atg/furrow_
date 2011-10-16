@@ -2,10 +2,10 @@
 
 #define emit(kind) emit_token(kind, ts, te, tokens);
 
-static inline emit_token(int kind, char* ts, char* te, std::vector<token_t>& tokens) {
+static inline void emit_token(int kind, char* ts, char* te, std::vector<token_t>& tokens) {
     token_t tok;
     tok.tokentype = kind;
-    tok.content = std::string(ts, te, te - ts);
+    tok.contents = new std::string(ts, te, te - ts);
     tokens.push_back(tok);
 }
 
@@ -45,7 +45,7 @@ std::vector<token_t> lex(std::string input) {
     std::vector<token_t> tokens;
     
     char* p = data;
-    char* pe = p + data.length();
+    char* pe = p + input.length();
     char* eof = pe;
     
     int cs = 0;
