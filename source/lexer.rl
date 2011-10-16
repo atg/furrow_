@@ -19,13 +19,18 @@ identchar = ([a-zA-Z0-9_] | '-');
 
 main := |*
     
-    # Operators
+    # Delimiters and Operators
+    [(] { emit(LPAREN) };
+    [)] { emit(RPAREN) };
+    
+    [=] { emit(EQ) };
+    [,] { emit(COMMA) };
+    
     [+] { emit(PLUS) };
     '-' { emit(MINUS) };
     [*] { emit(STAR) };
     [/] { emit(SLASH) };
-    # "mod" { emit(MOD) };
-    
+            
     # Keywords
     # "foo" { emit(FOO) };
     
