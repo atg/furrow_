@@ -8,12 +8,13 @@
 
     #import <vector>
     #import <string>
+    #import <iostream>
+    #import <assert.h>
     
-    #import "furrow.hh"
     #import "parser.hh"
     #import "lexer.hh"
     #import "ast.hh"
-#line 17 "source/grammar.c"
+#line 18 "source/grammar.c"
 /* Next is all token values, in a form suitable for use by makeheaders.
 ** This section will be null unless lemon is run with the -m switch.
 */
@@ -792,10 +793,10 @@ static void yy_syntax_error(
 ){
   parse_ARG_FETCH;
 #define TOKEN (yyminor.yy0)
-#line 13 "source/grammar.lem"
+#line 14 "source/grammar.lem"
 
     std::cout << "Syntax error!";
-#line 799 "source/grammar.c"
+#line 800 "source/grammar.c"
   parse_ARG_STORE; /* Suppress warning about unused %extra_argument variable */
 }
 

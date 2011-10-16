@@ -1,6 +1,6 @@
 # Build the parser
 build/lemon source/grammar.lem
-mv source/grammar.c build/grammar.cc
+mv source/grammar.c source/grammar.cc
 mv source/grammar.out build/parser.out
 mv source/grammar.h source/tokens.hh
 
