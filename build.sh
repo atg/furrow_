@@ -1,9 +1,9 @@
 # Build the parser
-lemon source/parser.lem
-mv source/parser.c build/parser.c
+build/lemon source/parser.lem
+mv source/parser.c build/parser.cc
 
 # Build the lexer
-ragel -T1 -C source/lexer.rl -o build/lexer.c
+build/ragel -T1 -C source/lexer.rl -o build/lexer.cc
 
 # Build the source
-clang -Wall source/*.c build/*.c -o fur
+clang++ -Wall source/*.cc build/*.cc -o fur
