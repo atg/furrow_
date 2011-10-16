@@ -5,7 +5,7 @@
 static inline void emit_token(int kind, char* ts, char* te, std::vector<token_t>& tokens) {
     token_t tok;
     tok.tokentype = kind;
-    tok.contents = new std::string(ts, te, te - ts);
+    tok.contents = new std::string(ts, te - ts);
     tokens.push_back(tok);
 }
 
