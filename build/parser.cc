@@ -70,14 +70,14 @@
 typedef union {
   int yyinit;
   parse_TOKENTYPE yy0;
-  ast_t yy20;
+  ast_t* yy22;
 } YYMINORTYPE;
 #ifndef YYSTACKDEPTH
 #define YYSTACKDEPTH 100
 #endif
-#define parse_ARG_SDECL  ast_t ast ;
-#define parse_ARG_PDECL , ast_t ast 
-#define parse_ARG_FETCH  ast_t ast  = yypParser->ast 
+#define parse_ARG_SDECL  ast_t* ast ;
+#define parse_ARG_PDECL , ast_t* ast 
+#define parse_ARG_FETCH  ast_t* ast  = yypParser->ast 
 #define parse_ARG_STORE yypParser->ast  = ast 
 #define YYNSTATE 38
 #define YYNRULE 26

@@ -1,8 +1,8 @@
 # Build the parser
-build/lemon source/parser.lem
-mv source/parser.c build/parser.cc
-mv source/parser.out build/parser.out
-mv source/parser.h source/parser.hh
+build/lemon source/grammar.lem
+mv source/grammar.c build/grammar.cc
+mv source/grammar.out build/parser.out
+mv source/grammar.h source/tokens.hh
 
 # Build the lexer
 build/ragel -T1 -C source/lexer.rl -o build/lexer.cc

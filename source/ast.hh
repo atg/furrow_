@@ -10,6 +10,10 @@ struct ident_value_t : pubic lvalue_t {
 };
 
 
+struct verb_t {
+    std::string name;
+};
+
 struct verbphrase_t {
     verb_t* verb;
     expr_t* noun;
