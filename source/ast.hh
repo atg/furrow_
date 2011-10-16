@@ -1,11 +1,9 @@
-#import "furrow.hh"
-
 struct expr_t;
 
 struct lvalue_t {
     enum { type_ident } lvaluetype;
 };
-struct ident_value_t : pubic lvalue_t {
+struct ident_value_t : public lvalue_t {
     std::string ident; 
 };
 
