@@ -39,8 +39,9 @@ expr ::= expr MINUS expr.
 expr ::= expr STAR expr.
 expr ::= expr SLASH expr.
 expr ::= ident.
+expr ::= numeric.
 
-sentance ::= noun verbs.
+sentence ::= noun verbnouns.
 noun ::= expr.
 verbnouns ::= verbnouns verbnoun.
 verbnouns ::= verbnoun.
@@ -49,3 +50,6 @@ verbnoun ::= verb noun.
 verbnoun ::= verb.
 
 verb ::= VERB.
+ident ::= IDENT.
+numeric ::= NUMERIC.
+

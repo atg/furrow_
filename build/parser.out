@@ -1,0 +1,501 @@
+State 0:
+          program ::= * decls
+          decls ::= * decls decl
+          decls ::= * decl
+      (3) decls ::= *
+          decl ::= * ident LPAREN lvalues RPAREN EQ expr
+          ident ::= * IDENT
+
+                         IDENT shift  27
+                         IDENT reduce 3   ** Parsing conflict **
+                       program accept
+                         decls shift  11
+                          decl shift  29
+                         ident shift  23
+                     {default} reduce 3
+
+State 1:
+          expr ::= * sentence
+          expr ::= * LPAREN expr RPAREN
+          expr ::= * expr PLUS expr
+          expr ::= * expr MINUS expr
+          expr ::= expr MINUS * expr
+          expr ::= * expr STAR expr
+          expr ::= * expr SLASH expr
+          expr ::= * ident
+          expr ::= * numeric
+          sentence ::= * noun verbnouns
+          noun ::= * expr
+          ident ::= * IDENT
+          numeric ::= * NUMERIC
+
+                        LPAREN shift  5
+                         IDENT shift  27
+                       NUMERIC shift  28
+                         ident shift  35
+                          expr shift  17
+                      sentence shift  36
+                       numeric shift  34
+                          noun shift  10
+
+State 2:
+          decl ::= ident LPAREN lvalues RPAREN EQ * expr
+          expr ::= * sentence
+          expr ::= * LPAREN expr RPAREN
+          expr ::= * expr PLUS expr
+          expr ::= * expr MINUS expr
+          expr ::= * expr STAR expr
+          expr ::= * expr SLASH expr
+          expr ::= * ident
+          expr ::= * numeric
+          sentence ::= * noun verbnouns
+          noun ::= * expr
+          ident ::= * IDENT
+          numeric ::= * NUMERIC
+
+                        LPAREN shift  5
+                         IDENT shift  27
+                       NUMERIC shift  28
+                         ident shift  35
+                          expr shift  15
+                      sentence shift  36
+                       numeric shift  34
+                          noun shift  10
+
+State 3:
+          expr ::= * sentence
+          expr ::= * LPAREN expr RPAREN
+          expr ::= * expr PLUS expr
+          expr ::= * expr MINUS expr
+          expr ::= * expr STAR expr
+          expr ::= expr STAR * expr
+          expr ::= * expr SLASH expr
+          expr ::= * ident
+          expr ::= * numeric
+          sentence ::= * noun verbnouns
+          noun ::= * expr
+          ident ::= * IDENT
+          numeric ::= * NUMERIC
+
+                        LPAREN shift  5
+                         IDENT shift  27
+                       NUMERIC shift  28
+                         ident shift  35
+                          expr shift  18
+                      sentence shift  36
+                       numeric shift  34
+                          noun shift  10
+
+State 4:
+          expr ::= * sentence
+          expr ::= * LPAREN expr RPAREN
+          expr ::= * expr PLUS expr
+          expr ::= expr PLUS * expr
+          expr ::= * expr MINUS expr
+          expr ::= * expr STAR expr
+          expr ::= * expr SLASH expr
+          expr ::= * ident
+          expr ::= * numeric
+          sentence ::= * noun verbnouns
+          noun ::= * expr
+          ident ::= * IDENT
+          numeric ::= * NUMERIC
+
+                        LPAREN shift  5
+                         IDENT shift  27
+                       NUMERIC shift  28
+                         ident shift  35
+                          expr shift  20
+                      sentence shift  36
+                       numeric shift  34
+                          noun shift  10
+
+State 5:
+          expr ::= * sentence
+          expr ::= * LPAREN expr RPAREN
+          expr ::= LPAREN * expr RPAREN
+          expr ::= * expr PLUS expr
+          expr ::= * expr MINUS expr
+          expr ::= * expr STAR expr
+          expr ::= * expr SLASH expr
+          expr ::= * ident
+          expr ::= * numeric
+          sentence ::= * noun verbnouns
+          noun ::= * expr
+          ident ::= * IDENT
+          numeric ::= * NUMERIC
+
+                        LPAREN shift  5
+                         IDENT shift  27
+                       NUMERIC shift  28
+                         ident shift  35
+                          expr shift  14
+                      sentence shift  36
+                       numeric shift  34
+                          noun shift  10
+
+State 6:
+          expr ::= * sentence
+          expr ::= * LPAREN expr RPAREN
+          expr ::= * expr PLUS expr
+          expr ::= * expr MINUS expr
+          expr ::= * expr STAR expr
+          expr ::= * expr SLASH expr
+          expr ::= expr SLASH * expr
+          expr ::= * ident
+          expr ::= * numeric
+          sentence ::= * noun verbnouns
+          noun ::= * expr
+          ident ::= * IDENT
+          numeric ::= * NUMERIC
+
+                        LPAREN shift  5
+                         IDENT shift  27
+                       NUMERIC shift  28
+                         ident shift  35
+                          expr shift  16
+                      sentence shift  36
+                       numeric shift  34
+                          noun shift  10
+
+State 7:
+          expr ::= * sentence
+          expr ::= * LPAREN expr RPAREN
+          expr ::= * expr PLUS expr
+          expr ::= * expr MINUS expr
+          expr ::= * expr STAR expr
+          expr ::= * expr SLASH expr
+          expr ::= * ident
+          expr ::= * numeric
+          sentence ::= * noun verbnouns
+          noun ::= * expr
+          verbnoun ::= verb * noun
+     (22) verbnoun ::= verb *
+          ident ::= * IDENT
+          numeric ::= * NUMERIC
+
+                        LPAREN shift  5
+                         IDENT shift  27
+                         IDENT reduce 22  ** Parsing conflict **
+                       NUMERIC shift  28
+                         ident shift  35
+                          expr shift  19
+                      sentence shift  36
+                       numeric shift  34
+                          noun shift  8
+                     {default} reduce 22
+
+State 8:
+          sentence ::= noun * verbnouns
+          verbnouns ::= * verbnouns verbnoun
+          verbnouns ::= * verbnoun
+          verbnoun ::= * verb noun
+     (21) verbnoun ::= verb noun *
+          verbnoun ::= * verb
+          verb ::= * VERB
+
+                          VERB shift  26
+                          VERB reduce 21  ** Parsing conflict **
+                     verbnouns shift  13
+                      verbnoun shift  25
+                          verb shift  7
+                     {default} reduce 21
+
+State 9:
+          decl ::= ident LPAREN * lvalues RPAREN EQ expr
+          lvalues ::= * lvalues COMMA lvalue
+          lvalues ::= * lvalue
+      (7) lvalues ::= *
+          lvalue ::= * ident
+          ident ::= * IDENT
+
+                         IDENT shift  27
+                         ident shift  32
+                       lvalues shift  21
+                        lvalue shift  24
+                     {default} reduce 7
+
+State 10:
+          sentence ::= noun * verbnouns
+          verbnouns ::= * verbnouns verbnoun
+          verbnouns ::= * verbnoun
+          verbnoun ::= * verb noun
+          verbnoun ::= * verb
+          verb ::= * VERB
+
+                          VERB shift  26
+                     verbnouns shift  13
+                      verbnoun shift  25
+                          verb shift  7
+
+State 11:
+      (0) program ::= decls *
+          decls ::= decls * decl
+          decl ::= * ident LPAREN lvalues RPAREN EQ expr
+          ident ::= * IDENT
+
+                             $ reduce 0
+                         IDENT shift  27
+                          decl shift  30
+                         ident shift  23
+
+State 12:
+          lvalues ::= lvalues COMMA * lvalue
+          lvalue ::= * ident
+          ident ::= * IDENT
+
+                         IDENT shift  27
+                         ident shift  32
+                        lvalue shift  31
+
+State 13:
+     (17) sentence ::= noun verbnouns *
+          verbnouns ::= verbnouns * verbnoun
+          verbnoun ::= * verb noun
+          verbnoun ::= * verb
+          verb ::= * VERB
+
+                          VERB shift  26
+                          VERB reduce 17  ** Parsing conflict **
+                      verbnoun shift  37
+                          verb shift  7
+                     {default} reduce 17
+
+State 14:
+          expr ::= LPAREN expr * RPAREN
+          expr ::= expr * PLUS expr
+          expr ::= expr * MINUS expr
+          expr ::= expr * STAR expr
+          expr ::= expr * SLASH expr
+     (18) noun ::= expr *
+
+                        RPAREN shift  33
+                          PLUS shift  4
+                         MINUS shift  1
+                          STAR shift  3
+                         SLASH shift  6
+                     {default} reduce 18
+
+State 15:
+      (4) decl ::= ident LPAREN lvalues RPAREN EQ expr *
+          expr ::= expr * PLUS expr
+          expr ::= expr * MINUS expr
+          expr ::= expr * STAR expr
+          expr ::= expr * SLASH expr
+     (18) noun ::= expr *
+
+                          PLUS shift  4
+                         MINUS shift  1
+                          STAR shift  3
+                         SLASH shift  6
+                          VERB reduce 18
+                     {default} reduce 4
+
+State 16:
+          expr ::= expr * PLUS expr
+          expr ::= expr * MINUS expr
+          expr ::= expr * STAR expr
+          expr ::= expr * SLASH expr
+     (14) expr ::= expr SLASH expr *
+     (18) noun ::= expr *
+
+                          PLUS shift  4
+                          PLUS reduce 14  ** Parsing conflict **
+                         MINUS shift  1
+                         MINUS reduce 14  ** Parsing conflict **
+                          STAR shift  3
+                          STAR reduce 14  ** Parsing conflict **
+                         SLASH shift  6
+                         SLASH reduce 14  ** Parsing conflict **
+                          VERB reduce 18  ** Parsing conflict **
+                     {default} reduce 14
+
+State 17:
+          expr ::= expr * PLUS expr
+          expr ::= expr * MINUS expr
+     (12) expr ::= expr MINUS expr *
+          expr ::= expr * STAR expr
+          expr ::= expr * SLASH expr
+     (18) noun ::= expr *
+
+                          PLUS shift  4
+                          PLUS reduce 12  ** Parsing conflict **
+                         MINUS shift  1
+                         MINUS reduce 12  ** Parsing conflict **
+                          STAR shift  3
+                          STAR reduce 12  ** Parsing conflict **
+                         SLASH shift  6
+                         SLASH reduce 12  ** Parsing conflict **
+                          VERB reduce 18  ** Parsing conflict **
+                     {default} reduce 12
+
+State 18:
+          expr ::= expr * PLUS expr
+          expr ::= expr * MINUS expr
+          expr ::= expr * STAR expr
+     (13) expr ::= expr STAR expr *
+          expr ::= expr * SLASH expr
+     (18) noun ::= expr *
+
+                          PLUS shift  4
+                          PLUS reduce 13  ** Parsing conflict **
+                         MINUS shift  1
+                         MINUS reduce 13  ** Parsing conflict **
+                          STAR shift  3
+                          STAR reduce 13  ** Parsing conflict **
+                         SLASH shift  6
+                         SLASH reduce 13  ** Parsing conflict **
+                          VERB reduce 18  ** Parsing conflict **
+                     {default} reduce 13
+
+State 19:
+          expr ::= expr * PLUS expr
+          expr ::= expr * MINUS expr
+          expr ::= expr * STAR expr
+          expr ::= expr * SLASH expr
+     (18) noun ::= expr *
+
+                          PLUS shift  4
+                          PLUS reduce 18  ** Parsing conflict **
+                         MINUS shift  1
+                         MINUS reduce 18  ** Parsing conflict **
+                          STAR shift  3
+                          STAR reduce 18  ** Parsing conflict **
+                         SLASH shift  6
+                         SLASH reduce 18  ** Parsing conflict **
+                     {default} reduce 18
+
+State 20:
+          expr ::= expr * PLUS expr
+     (11) expr ::= expr PLUS expr *
+          expr ::= expr * MINUS expr
+          expr ::= expr * STAR expr
+          expr ::= expr * SLASH expr
+     (18) noun ::= expr *
+
+                          PLUS shift  4
+                          PLUS reduce 11  ** Parsing conflict **
+                         MINUS shift  1
+                         MINUS reduce 11  ** Parsing conflict **
+                          STAR shift  3
+                          STAR reduce 11  ** Parsing conflict **
+                         SLASH shift  6
+                         SLASH reduce 11  ** Parsing conflict **
+                          VERB reduce 18  ** Parsing conflict **
+                     {default} reduce 11
+
+State 21:
+          decl ::= ident LPAREN lvalues * RPAREN EQ expr
+          lvalues ::= lvalues * COMMA lvalue
+
+                        RPAREN shift  22
+                         COMMA shift  12
+
+State 22:
+          decl ::= ident LPAREN lvalues RPAREN * EQ expr
+
+                            EQ shift  2
+
+State 23:
+          decl ::= ident * LPAREN lvalues RPAREN EQ expr
+
+                        LPAREN shift  9
+
+State 24:
+      (6) lvalues ::= lvalue *
+
+                     {default} reduce 6
+
+State 25:
+     (20) verbnouns ::= verbnoun *
+
+                     {default} reduce 20
+
+State 26:
+     (23) verb ::= VERB *
+
+                     {default} reduce 23
+
+State 27:
+     (24) ident ::= IDENT *
+
+                     {default} reduce 24
+
+State 28:
+     (25) numeric ::= NUMERIC *
+
+                     {default} reduce 25
+
+State 29:
+      (2) decls ::= decl *
+
+                     {default} reduce 2
+
+State 30:
+      (1) decls ::= decls decl *
+
+                     {default} reduce 1
+
+State 31:
+      (5) lvalues ::= lvalues COMMA lvalue *
+
+                     {default} reduce 5
+
+State 32:
+      (8) lvalue ::= ident *
+
+                     {default} reduce 8
+
+State 33:
+     (10) expr ::= LPAREN expr RPAREN *
+
+                     {default} reduce 10
+
+State 34:
+     (16) expr ::= numeric *
+
+                     {default} reduce 16
+
+State 35:
+     (15) expr ::= ident *
+
+                     {default} reduce 15
+
+State 36:
+      (9) expr ::= sentence *
+
+                     {default} reduce 9
+
+State 37:
+     (19) verbnouns ::= verbnouns verbnoun *
+
+                     {default} reduce 19
+
+----------------------------------------------------
+Symbols:
+    0: $:
+    1: LPAREN
+    2: RPAREN
+    3: EQ
+    4: COMMA
+    5: PLUS
+    6: MINUS
+    7: STAR
+    8: SLASH
+    9: VERB
+   10: IDENT
+   11: NUMERIC
+   12: error:
+   13: program: IDENT
+   14: decls: <lambda> IDENT
+   15: decl: IDENT
+   16: ident: IDENT
+   17: lvalues: <lambda> COMMA IDENT
+   18: expr: LPAREN IDENT NUMERIC
+   19: lvalue: IDENT
+   20: sentence: LPAREN IDENT NUMERIC
+   21: numeric: NUMERIC
+   22: noun: LPAREN IDENT NUMERIC
+   23: verbnouns: VERB
+   24: verbnoun: VERB
+   25: verb: VERB
