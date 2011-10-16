@@ -21,7 +21,7 @@ main := |*
     
     # Operators
     [+] { emit(PLUS) };
-    [-] { emit(MINUS) };
+    '-' { emit(MINUS) };
     [*] { emit(STAR) };
     [/] { emit(SLASH) };
     # "mod" { emit(MOD) };
