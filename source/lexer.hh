@@ -1,5 +1,6 @@
 #import "tokens.hh"
 #import <vector>
+#import <string>
 
 struct token_t {
     int tokentype;
