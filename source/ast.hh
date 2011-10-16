@@ -1,3 +1,6 @@
+#import <string>
+#import <vector>
+
 struct expr_t;
 
 struct lvalue_t {
