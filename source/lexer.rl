@@ -15,6 +15,7 @@ machine lexer;
 write data;
 
 verbchar = [/.];
+identchar = ([a-zA-Z0-9_] | '-');
 
 main := |*
     
@@ -32,8 +33,8 @@ main := |*
     digit+ ('.' digit+)? { emit(NUMERIC) };
     
     # Identifiers
-    [a-zA-Z_][a-zA-Z0-9_-] { emit(IDENT) };
-    verbchar ([a-zA-Z_] | verbchar) ([a-zA-Z0-9_-] | verbchar) { emit(VERB) };
+    [a-zA-Z_] identchar* { emit(IDENT) };
+    verbchar (([a-zA-Z_] | verbchar) (identchar | verbchar)*)? { emit(VERB) };
 *|;
 
 }%%
