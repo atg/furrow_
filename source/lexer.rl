@@ -41,10 +41,10 @@ main := |*
 
 std::vector<token_t> lex(std::string input) {
     
-    char* data = input.c_str();
+    const char* data = input.c_str();
     std::vector<token_t> tokens;
     
-    char* p = data;
+    char* p = const_cast<char*>(data);
     char* pe = p + input.length();
     char* eof = pe;
     
