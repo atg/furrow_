@@ -1,4 +1,4 @@
-#import "lexer.hh"
+#import "../source/lexer.hh"
 
 #define emit(kind) emit_token(kind, ts, te, tokens);
 
